@@ -32,11 +32,11 @@ mv from_dir/client.c to_dir/client.c
 ```
 Compile server.c program.
 ```
-gcc server.c -o server.out.
+gcc server.c -o server.out
 ```
 Compile client.c program.
 ```
-gcc client.c -o client.out.
+gcc client.c -o client.out
 ```
 Run the server as a job.
 ```
