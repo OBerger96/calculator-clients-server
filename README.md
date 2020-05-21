@@ -7,7 +7,7 @@ Simple command line calculator using only system calls and signals in Linux. Eac
 
 
 ## Getting Started
-Copy he project to a local directory:
+Copy the project to a local directory:
 Clone with SSH 
 ```
 git@github.com:OBerger96/calculator-clients-server.git
