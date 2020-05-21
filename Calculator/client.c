@@ -1,10 +1,3 @@
-// *********************************************************************************************************************************
-// *********************************************************************************************************************************
-//														1.Omer Berger 315940460
-// 														2.Noa Cohen 313526204
-// *********************************************************************************************************************************
-// *********************************************************************************************************************************
-
 #define NUM_OF_TRIES (10)
 #define STR_SIZE (150)
 #define DECIMAL (10)
@@ -36,7 +29,8 @@ void myItoa(int num, char * str ,int base);
 // Returns length of the string.
 int myStrlen(char* str);
 
-// Determines whether a string represents an integer or not (1->valid number, 0->not)int isValidNumber(char* str);
+// Determines whether a string represents an integer or not (1->valid number, 0->not)
+int isValidNumber(char* str);
 
 // Appends a copy of the str2 string to the str1 string.
 void myStrcat(char* str1, char* str2);
@@ -107,7 +101,9 @@ int main(int argc, char* argv[])
 	{
 		// Delete to_srv.txt file
 		unlink("to_srv.txt");
-		printf("\nERROR_FROM_EX2\n");		//printf("Error occurred: attempting to send SIGUSR1 to the server\n");		exit(-1);
+		printf("\nERROR_FROM_EX2\n");
+		//printf("Error occurred: attempting to send SIGUSR1 to the server\n");
+		exit(-1);
 	}
 
 	printf("\nClient #%d: End of stage 5.d\n", getpid());
@@ -132,7 +128,9 @@ int getLatency()
 	int randomNum = 0;
 	if (getrandom(&randomNum, sizeof(randomNum), 0) < 0)
 	{
-		printf("\nERROR_FROM_EX2\n");		//printf("Error occurred: attempting to get random number...\n");		exit(-1);
+		printf("\nERROR_FROM_EX2\n");
+		//printf("Error occurred: attempting to get random number...\n");
+		exit(-1);
 	}
 	if (randomNum < 0) { randomNum *= -1; }
 	return ((randomNum % 5) + 1);
@@ -206,7 +204,23 @@ int myStrlen(char* str)
 }
 
 int isValidNumber(char* str)
-{	if (str == NULL) { return 0; }	int sizeOfStr = myStrlen(str);	int i = 0;	// Checking for negative sign "-" could be added: ASCII value 45.	if (str[0] == '-') {i++;}	// ASCII value of 0 = 48, 9 = 57. So if value is outside of numeric range then fail.	for (; i < sizeOfStr; i++)	{		if ((str[i] < 48) || str[i] > 57) { return 0; }	}	return 1;}
+{
+	if (str == NULL) { return 0; }
+
+	int sizeOfStr = myStrlen(str);
+	int i = 0;
+
+	// Checking for negative sign "-" could be added: ASCII value 45.
+	if (str[0] == '-') {i++;}
+
+	// ASCII value of 0 = 48, 9 = 57. So if value is outside of numeric range then fail.
+	for (; i < sizeOfStr; i++)
+	{
+		if ((str[i] < 48) || str[i] > 57) { return 0; }
+	}
+
+	return 1;
+}
 
 void myStrcat(char* str1, char* str2)
 {
@@ -370,7 +384,14 @@ void writeToServerFile(int argc, char* argv[])
 		exit(-1);
 	}
 
-	if (write(fd_to_server, "\n", myStrlen("\n")) < 0)	{		close(fd_to_server);		printf("\nERROR_FROM_EX2\n");		//printf("Error occurred: attempting to write to_srv.txt file...\n");		exit(-1);	}
+	if (write(fd_to_server, "\n", myStrlen("\n")) < 0)
+	{
+		close(fd_to_server);
+
+		printf("\nERROR_FROM_EX2\n");
+		//printf("Error occurred: attempting to write to_srv.txt file...\n");
+		exit(-1);
+	}
 
 	for (int i = 2; i < argc; i++)
 	{
@@ -383,7 +404,14 @@ void writeToServerFile(int argc, char* argv[])
 			exit(-1);
 		}
 
-		if (write(fd_to_server, "\n", myStrlen("\n")) < 0)		{			close(fd_to_server);			printf("\nERROR_FROM_EX2\n");			//printf("Error occurred: attempting to write to_srv.txt file...\n");			exit(-1);		}
+		if (write(fd_to_server, "\n", myStrlen("\n")) < 0)
+		{
+			close(fd_to_server);
+
+			printf("\nERROR_FROM_EX2\n");
+			//printf("Error occurred: attempting to write to_srv.txt file...\n");
+			exit(-1);
+		}
 	}
 
 	close(fd_to_server);
