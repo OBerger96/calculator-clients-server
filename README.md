@@ -1,4 +1,4 @@
-# calculator-clients-server
+# Calculator for multiple clients and single server
 Simple command line calculator using only system calls and signals in Linux. Each client sends an expression to the server, while the server calculates it and returns to each client the result.
 * In the client code, we check if the user gave the right operators & valid numeric values, otherwise the client shuts down.
 * The server handles only integers (positive or negative). If something else is entered in the expression, the client will receive an error message and will shut down. The calculation result will also be an integer (rounded down).
@@ -58,4 +58,4 @@ Client's arguments list:
 ![screenshot](https://github.com/OBerger96/calculator-clients-server/blob/master/images/calculator-clients-server1.jpeg)
 
 ## Author
-* **Omer Berger** - [calculator-clients-server](https://github.com/OBerger96/calculator-clients-server)
+* **Omer Berger** - [calculator-multiple-clients-server](https://github.com/OBerger96/calculator-multiple-clients-server)
